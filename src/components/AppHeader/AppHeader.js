@@ -16,7 +16,7 @@ function AppHeader({ ...props }) {
                   activeClassName="active"
                   to={routes.HOME}
                 >
-                  Home
+                  RICK AND MORTY APP
                 </NavLink>
               </li>
             </ul>
