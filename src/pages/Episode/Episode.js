@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import axios from "axios";
 import React, { Component } from "react";
 
@@ -18,15 +19,24 @@ class Episode extends Component {
   }
 
   async componentDidMount() {
+    await this.loadCharacters();
+  }
+
+  async loadCharacters() {
+    const url = "https://rickandmortyapi.com/api/episode/1";
+
     try {
-      await axios
-        .get("https://rickandmortyapi.com/api/character?page=1")
-        .then((result) => {
-          console.log(result.data.results);
-          this.setState({
-            characters: result.data.results,
-          });
-        });
+      const axio = await axios.get(url);
+      console.log(axio);
+      const res = axio.data.characters;
+      console.log(res);
+      const arr = await axios.all(res.map((i) => axios.get(i)));
+      console.log(arr);
+      const arr2 = arr.map((e) => e.data);
+      console.log(arr2);
+      this.setState({
+        characters: arr2,
+      });
     } catch (error) {
       this.setState({
         // hasError: true,

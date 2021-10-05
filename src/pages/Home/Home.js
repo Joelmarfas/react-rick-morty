@@ -19,13 +19,17 @@ class Home extends Component {
     // paginationInfo: null,
   }
 
-  async componentDidMount() {
+  componentDidMount() {
+    this.loadEpisodes();
+  }
+
+  async loadEpisodes() {
     const { page } = this.state;
     try {
       await axios
         .get(`https://rickandmortyapi.com/api/episode?page=${page}`)
         .then((result) => {
-          console.log(result.data.results);
+          // console.log(result.data.results);
           this.setState({
             episodes: result.data.results,
             hasLoaded: true,
@@ -39,12 +43,6 @@ class Home extends Component {
       // console.log(error);
       // console.log(errorMessage);
     }
-
-    // this.loadEpisodes();
-  }
-
-  async loadEpisodes() {
-    console.log(this);
   }
 
   render() {
