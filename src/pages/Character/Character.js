@@ -35,7 +35,7 @@ export default class Character extends Component {
       const characterId = this.props.match.params.characterId;
       const urlCharacter = `https://rickandmortyapi.com/api/character/${characterId}`;
       const axiosCharacter = await axios.get(urlCharacter);
-      // console.log(axiosCharacter.data);
+      console.log(axiosCharacter);
       const result = axiosCharacter.data;
       this.setState({
         image: result.image,
@@ -55,7 +55,7 @@ export default class Character extends Component {
     const matchId = this.props.match.params.characterId;
     const urlEpisodesCharacter = `https://rickandmortyapi.com/api/character/${matchId}`;
     const axiosList = await axios.get(urlEpisodesCharacter);
-    // console.log(axiosList);
+    // console.log(axiosList.data);
     const list = axiosList.data.episode;
     // console.log(list);
     const arrList = await axios.all(list.map((episode) => axios.get(episode)));
@@ -82,7 +82,7 @@ export default class Character extends Component {
           <div className="card mb-3">
             <div className="row g-0">
               <div className="col-md-4">
-                <img src={image} alt="" />
+                <img src={image} alt={name} />
               </div>
               <div className="col-md-8">
                 <div className="card-body">
