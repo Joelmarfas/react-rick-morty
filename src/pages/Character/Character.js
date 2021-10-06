@@ -114,22 +114,24 @@ export default class Character extends Component {
           </div>
         </section>
 
-        <section>
+        <section className="wraper">
           <hr />
           <h6>
             <strong>EPISODES</strong>
           </h6>
           <hr />
-          <div>
-            {episodesList.map((episodeList) => (
-              <EpisodeCard
-                key={episodeList.data.id}
-                episodeId={episodeList.data.id}
-                name={episodeList.data.name}
-                airDate={episodeList.data.air_date}
-                episode={episodeList.data.episode}
-              />
-            ))}
+          <div className="row">
+            <div className="row">
+              {episodesList.map((episodeList) => (
+                <EpisodeCard
+                  key={episodeList.data.id}
+                  episodeId={episodeList.data.id}
+                  name={episodeList.data.name}
+                  airDate={episodeList.data.air_date}
+                  episode={episodeList.data.episode}
+                />
+              ))}
+            </div>
           </div>
         </section>
       </Layout>
