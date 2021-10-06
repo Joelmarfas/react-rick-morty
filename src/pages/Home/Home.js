@@ -29,7 +29,7 @@ class Home extends Component {
       await axios
         .get(`https://rickandmortyapi.com/api/episode?page=${page}`)
         .then((result) => {
-          // console.log(result.data.results);
+          console.log(result.data.results);
           this.setState({
             episodes: result.data.results,
             hasLoaded: true,
@@ -62,7 +62,7 @@ class Home extends Component {
           {episodes.map((episode) => (
             <EpisodeCard
               key={episode.id}
-              id={episode.id}
+              episodeId={episode.id}
               name={episode.name}
               airDate={episode.air_date}
               episode={episode.episode}

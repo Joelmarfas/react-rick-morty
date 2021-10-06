@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable no-console */
 import axios from "axios";
 import React, { Component } from "react";
@@ -23,17 +24,19 @@ class Episode extends Component {
   }
 
   async loadCharacters() {
-    const url = "https://rickandmortyapi.com/api/episode/1";
+    console.log(this.props);
+    const episodeId = this.props.match.params.episodeId;
+    const url = `https://rickandmortyapi.com/api/episode/${episodeId}`;
 
     try {
       const axio = await axios.get(url);
-      console.log(axio);
+      // console.log(axio);
       const res = axio.data.characters;
-      console.log(res);
+      // console.log(res);
       const arr = await axios.all(res.map((i) => axios.get(i)));
-      console.log(arr);
+      // console.log(arr);
       const arr2 = arr.map((e) => e.data);
-      console.log(arr2);
+      // console.log(arr2);
       this.setState({
         characters: arr2,
       });
