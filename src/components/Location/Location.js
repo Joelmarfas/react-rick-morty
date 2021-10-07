@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from "react";
 import axios from "axios";
