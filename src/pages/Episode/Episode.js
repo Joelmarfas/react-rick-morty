@@ -53,7 +53,7 @@ class Episode extends Component {
     return (
       <Layout>
         <section className="row">
-          <div className="col col-12">
+          <div className="row">
             {characters.map((character) => (
               <CharacterCard
                 key={character.id}
